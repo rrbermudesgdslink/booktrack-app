@@ -1,12 +1,22 @@
 import React from 'react';
-function Header() {
-  // JSX for the header will go here
-return (
-      <header className="app-header">
-        <h1>BookTrack</h1>
-        <button className="add-book-btn">Add New Book</button>
-      </header>
-    );
-    
+import PropTypes from 'prop-types';
+
+function Header({ onAddNewBookClick }) {
+  return (
+    <header className="app-header">
+      <h1>BookTrack</h1>
+      <button 
+        className="add-book-btn"
+        onClick={onAddNewBookClick}   // call the prop function when clicked
+      >
+        Add New Book
+      </button>
+    </header>
+  );
 }
+
+Header.propTypes = {
+  onAddNewBookClick: PropTypes.func.isRequired
+};
+
 export default Header;
